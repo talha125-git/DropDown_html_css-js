@@ -5,43 +5,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
     <title>DropDown js by talha </title>
 </head>
-<!-- npx tailwindcss -i ./src/input.css -o ./dist/style.css --watch -->
 
-<body>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
 
-    <section class="w-full h-auto px-4  md:px-12 lg:px-20">
-        <div class="flex justify-center items-center flex-col mt-32">
+    <section class="w-full h-auto px-4 md:px-12 lg:px-20 py-16">
+        <div class="flex justify-center items-center flex-col">
     
             <!-- Condition Heading -->
-            <div class="w-full md:w-[700px]">
-                <h1 class="text-xl font-medium text-start">Condition</h1>
+            <div class="w-full md:w-[700px] mb-4">
+                <h1 class="text-2xl font-bold text-gray-800 text-center mb-8">Select Condition</h1>
             </div>
-             <!-- Dropdown Button -->
-            <button onclick="dropdown()" class="group relative border border-gray-300 flex justify-between text-gray-500 font-medium px-3  w-full md:w-[700px] py-1 rounded bg-slate-200 ">
-                <p class="text-2xl font-serif uppercase text-black">Excellent Condition</p>
-                <i id="arrow" class="bi bi-chevron-down transform transition-transform duration-300"></i>
-            </button>
+            
+            <!-- Dropdown Container -->
+            <div class="w-full md:w-[700px] relative">
+                <!-- Dropdown Button -->
+                <button onclick="dropdown()" class="group relative border-2 border-indigo-300 flex justify-between items-center text-gray-700 font-semibold px-6 py-4 w-full rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:border-indigo-400 hover:bg-indigo-50">
+                    <span class="text-lg font-medium text-indigo-900">Excellent Condition</span>
+                    <i id="arrow" class="bi bi-chevron-down text-indigo-600 transform transition-transform duration-300 group-hover:scale-110"></i>
+                </button>
     
-            <!-- Dropdown Content -->
-            <div id="submenu" class="hidden flex flex-col text-start rounded-lg px-4 mt-1 shadow-md w-full md:w-[700px] bg-white">
-                <a class="active hover:underline text-2xl font-medium font-sans uppercase mt-3 text-black">Like new condition</a>
-                <p class="border-b border-slate-700 pb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, vero.</p>
-                <a class="active hover:underline text-2xl font-medium font-sans uppercase mt-3 text-black">Excellent Condition</a>
-                <p class="border-b border-slate-700 pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam rerum distinctio!</p>
-                <a class="active hover:underline text-2xl font-medium font-sans uppercase mt-3 text-black">Very good condition</a>
-                <p class="border-b border-slate-700 pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nisi architecto at unde, libero minima?</p>
-                <a class="active hover:underline text-2xl font-medium font-sans uppercase mt-3 text-black">Good condition</a>
-                <p class="border-b border-slate-700 py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt aut eaque, quas et deleniti ducimus cum voluptate voluptatibus esse eum.</p>
+                <!-- Dropdown Content -->
+                <div id="submenu" class="hidden absolute top-full left-0 right-0 z-10 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden transform transition-all duration-300 ease-out opacity-0 scale-95">
+                    <div class="p-2">
+                        <div class="py-3 px-4 hover:bg-indigo-50 cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0">
+                            <div class="flex items-center space-x-4">
+                                <i class="bi bi-star-fill text-yellow-500"></i>
+                                <div>
+                                    <a class="text-lg font-semibold text-gray-800 hover:text-indigo-600 transition-colors">Like New Condition</a>
+                                    <p class="text-sm text-gray-600 mt-1">Item appears unused with no visible wear.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py-3 px-4 hover:bg-indigo-50 cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0">
+                            <div class="flex items-center space-x-4">
+                                <i class="bi bi-check-circle-fill text-green-500"></i>
+                                <div>
+                                    <a class="text-lg font-semibold text-gray-800 hover:text-indigo-600 transition-colors">Excellent Condition</a>
+                                    <p class="text-sm text-gray-600 mt-1">Minimal signs of wear, functions perfectly.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py-3 px-4 hover:bg-indigo-50 cursor-pointer transition-colors duration-200 border-b border-gray-100 last:border-b-0">
+                            <div class="flex items-center space-x-4">
+                                <i class="bi bi-hand-thumbs-up-fill text-blue-500"></i>
+                                <div>
+                                    <a class="text-lg font-semibold text-gray-800 hover:text-indigo-600 transition-colors">Very Good Condition</a>
+                                    <p class="text-sm text-gray-600 mt-1">Some minor wear but still in great shape.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py-3 px-4 hover:bg-indigo-50 cursor-pointer transition-colors duration-200">
+                            <div class="flex items-center space-x-4">
+                                <i class="bi bi-check-circle text-gray-500"></i>
+                                <div>
+                                    <a class="text-lg font-semibold text-gray-800 hover:text-indigo-600 transition-colors">Good Condition</a>
+                                    <p class="text-sm text-gray-600 mt-1">Shows wear from normal use but still functional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
     
             <!-- Height Heading -->
-            <div class="w-full md:w-[700px]">
-                <h1 class="text-xl font-medium text-start">Height*</h1>
+            <div class="w-full md:w-[700px] mt-8">
+                <h1 class="text-xl font-medium text-gray-700">Height*</h1>
             </div>
         </div>
     </section>
@@ -50,8 +81,17 @@
         function dropdown() {
             const submenu = document.querySelector('#submenu');
             const arrow = document.querySelector('#arrow');
-            submenu.classList.toggle('hidden'); // Toggle visibility of dropdown
-            arrow.classList.toggle('rotate-0'); // Rotate arrow icon
+            
+            if (submenu.classList.contains('hidden')) {
+                submenu.classList.remove('hidden', 'opacity-0', 'scale-95');
+                submenu.classList.add('opacity-100', 'scale-100');
+                arrow.classList.add('rotate-180');
+            } else {
+                submenu.classList.add('opacity-0', 'scale-95');
+                submenu.classList.remove('opacity-100', 'scale-100');
+                setTimeout(() => submenu.classList.add('hidden'), 300);
+                arrow.classList.remove('rotate-180');
+            }
         }
     </script>
     
